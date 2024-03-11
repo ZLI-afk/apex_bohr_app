@@ -25,7 +25,7 @@ def main():
     run_sp_and_exit(
         to_parser(),
         description="APEX workflow submission",
-        version="0.1.0",
+        version="1.2.0",
         exception_handler=default_minimal_exception_handler,
     )
 
