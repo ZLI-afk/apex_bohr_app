@@ -14,9 +14,9 @@ from abacus_runner import abacus_runner
 
 def to_parser():
     return {
-        "LAMMPS": SubParser(LammpsModel, lmp_runner, "Submit MD workflow using LAMMPS"),
-        "VASP": SubParser(VaspModel, vasp_runner, "Submit DFT workflow using VASP"),
-        "ABACUS": SubParser(AbacusModel, abacus_runner, "Submit DFT workflow using ABACUS"),
+        "1-LAMMPS": SubParser(LammpsModel, lmp_runner, "Submit MD workflow using LAMMPS"),
+        "2-VASP": SubParser(VaspModel, vasp_runner, "Submit DFT workflow using VASP"),
+        "3-ABACUS": SubParser(AbacusModel, abacus_runner, "Submit DFT workflow using ABACUS"),
     }
 
 
