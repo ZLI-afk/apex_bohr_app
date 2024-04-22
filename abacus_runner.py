@@ -329,8 +329,7 @@ def abacus_runner(opts: AbacusModel):
         count += 1
 
     # papare INPUT
-    for ii in opts.input:
-        shutil.copy(ii, workdir)
+    shutil.copy(opts.input, workdir)
 
     # papare potential files
     for ii in opts.potentials:

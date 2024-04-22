@@ -340,8 +340,7 @@ def vasp_runner(opts: VaspModel):
         count += 1
 
     # papare INCAR
-    for ii in opts.incar:
-        shutil.copy(ii, workdir)
+    shutil.copy(opts.incar, workdir)
 
     # papare POTCAR
     for ii in opts.potcar:
