@@ -58,6 +58,7 @@ def get_interaction(opts: VaspModel):
         "potcar_prefix": ".",
         "potcars": opts.potcar_map
     }
+    return interaction
 
 
 def get_relaxation(opts: VaspModel):

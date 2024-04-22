@@ -61,6 +61,7 @@ def get_interaction(opts: AbacusModel):
     }
     if opts.deepks_map:
         interaction["deepks_desc"] = opts.deepks_map
+    return interaction
 
 
 def get_relaxation(opts: AbacusModel):
@@ -73,7 +74,6 @@ def get_relaxation(opts: AbacusModel):
     if opts.specify_relax_input:
         for k, v in opts.relax_input.items():
             relaxation["cal_setting"][k] = v
-        
     return relaxation
 
 
