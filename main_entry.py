@@ -18,6 +18,9 @@ def to_parser():
         "3-ABACUS": SubParser(AbacusModel, abacus_runner, "Submit DFT workflow using ABACUS"),
     }
 
+def error_handler(exc):
+    print(f"Error: {exc}")
+
 
 def main():
     # excute APEX app main flow
@@ -25,6 +28,7 @@ def main():
         to_parser(),
         description="APEX workflow submission",
         version="1.2.0",
+        exception_handler=error_handler
     )
 
 
