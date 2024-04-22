@@ -1,6 +1,5 @@
 from dp.launching.cli import (
     SubParser,
-    default_minimal_exception_handler,
     run_sp_and_exit,
 )
 
@@ -26,7 +25,6 @@ def main():
         to_parser(),
         description="APEX workflow submission",
         version="1.2.0",
-        exception_handler=default_minimal_exception_handler,
     )
 
 
