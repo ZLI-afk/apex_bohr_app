@@ -1,5 +1,5 @@
 from dp.launching.typing import BaseModel, Field
-from dp.launching.typing import InputFilePath, OutputDirectory
+from dp.launching.typing import InputFilePath, OutputDirectory, InputMaterialFilePath
 from dp.launching.typing import Int, Float, List, Enum, String, Dict, Boolean, Optional
 from dp.launching.typing.addon.sysmbol import Equal
 import dp.launching.typing.addon.ui as ui
@@ -52,8 +52,8 @@ class InjectConfig(BaseModel):
 
 
 class UploadFiles(BaseModel):
-    configurations: List[InputFilePath] = \
-        Field(..., description='Configuration `POSCAR` to be tested (name differently for multiple files)')
+    configurations: List[InputMaterialFilePath] = \
+        Field(..., description='Configuration POSCAR to be tested (name differently for multiple files)')
     potential_models: List[InputFilePath] = \
         Field(..., description='Interatomic potential files required during test', )
     parameter_files: List[InputFilePath] = \
