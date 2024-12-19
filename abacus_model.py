@@ -134,6 +134,10 @@ class RelaxationParameters(BaseModel):
         default=True,
         description='Relax unit cell volume'
     )
+    k_points: List[Int] = Field(
+        default=None,
+        description='K-point mesh for relaxation'
+    )
 
 
 class CalTypeOptions(String, Enum):
@@ -198,6 +202,10 @@ class EOSAdvance(BaseModel):
         default=False,
         description='Relax unit cell volume'
     )
+    eos_k_points: List[Int] = Field(
+        default=None,
+        description='K-point mesh for EOS calculation'
+    )
     eos_input: String = Field(
         default=None,
         format="multi-line",
@@ -252,6 +260,10 @@ class ElasticAdvance(BaseModel):
     elastic_relax_vol: Boolean = Field(
         default=False,
         description='Relax unit cell volume'
+    )
+    elastic_k_points: List[Int] = Field(
+        default=None,
+        description='K-point mesh for elastic property calculation'
     )
     elastic_input: String = Field(
         default=None,
@@ -318,6 +330,10 @@ class SurfaceAdvance(BaseModel):
         default=False,
         description='Relax unit cell volume'
     )
+    surface_k_points: List[Int] = Field(
+        default=None,
+        description='K-point mesh for surface formation energy calculation'
+    )
     surface_input: String = Field(
         default=None,
         format="multi-line",
@@ -371,6 +387,10 @@ class InterstitialAdvance(BaseModel):
         default=True,
         description='Relax unit cell volume'
     )
+    interstitial_k_points: List[Int] = Field(
+        default=None,
+        description='K-point mesh for interstitial calculation'
+    )
     interstitial_input: String = Field(
         default=None,
         format="multi-line",
@@ -419,6 +439,10 @@ class VacancyAdvance(BaseModel):
     vacancy_relax_vol: Boolean = Field(
         default=False,
         description='Relax unit cell volume'
+    )
+    vacancy_k_points: List[Int] = Field(
+        default=None,
+        description='K-point mesh for vacancy calculation'
     )
     vacancy_input: String = Field(
         default=None,
@@ -505,6 +529,10 @@ class GammaAdvance(BaseModel):
     gamma_relax_vol: Boolean = Field(
         default=False,
         description='Relax unit cell volume'
+    )
+    gamma_k_points: List[Int] = Field(
+        default=None,
+        description='K-point mesh for GSFE curve (Gamma line) calculation'
     )
     gamma_input: String = Field(
         default=None,

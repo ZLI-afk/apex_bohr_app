@@ -74,6 +74,8 @@ def get_relaxation(opts: AbacusModel):
     if opts.specify_relax_input:
         for k, v in opts.relax_input.items():
             relaxation["cal_setting"][k] = v
+    if opts.k_points:
+        relaxation["cal_setting"]["K_POINTS"] = opts.k_points
     return relaxation
 
 
@@ -96,6 +98,8 @@ def get_properties(opts: AbacusModel):
                 "relax_shape": opts.eos_relax_shape,
                 "relax_vol": opts.eos_relax_vol,
             }
+            if opts.eos_k_points:
+                eos_params["cal_setting"]["K_POINTS"] = opts.eos_k_points
             if opts.specify_eos_input:
                 for k, v in opts.eos_input.items():
                     eos_params["cal_setting"][k] = v
@@ -116,7 +120,6 @@ def get_properties(opts: AbacusModel):
         }
         if opts.custom_elastic_calc:
             elastic_params["cal_setting"] = {
-                "kgamma": opts.eos_kgamma,
                 "relax_pos": opts.eos_relax_pos,
                 "relax_shape": opts.eos_relax_shape,
                 "relax_vol": opts.eos_relax_vol,
@@ -129,6 +132,9 @@ def get_properties(opts: AbacusModel):
                 elastic_params["cal_setting"]["encut"] = opts.elastic_encut
             if opts.elastic_kspacing:
                 elastic_params["cal_setting"]["kspacing"] = opts.elastic_kspacing
+            if opts.elastic_k_points:
+                elastic_params["cal_setting"]["K_POINTS"] = opts.elastic_k_points
+            
             
             if opts.elastic_incar:
                 with open('INCAR.elastic', 'w') as f:
@@ -149,7 +155,6 @@ def get_properties(opts: AbacusModel):
         }
         if opts.custom_surface_calc:
             surface_params["cal_setting"] = {
-                "kgamma": opts.surface_kgamma,
                 "relax_pos": opts.surface_relax_pos,
                 "relax_shape": opts.surface_relax_shape,
                 "relax_vol": opts.surface_relax_vol,
@@ -162,6 +167,8 @@ def get_properties(opts: AbacusModel):
                 surface_params["cal_setting"]["encut"] = opts.surface_encut
             if opts.surface_kspacing:
                 surface_params["cal_setting"]["kspacing"] = opts.surface_kspacing
+            if opts.surface_k_points:
+                surface_params["cal_setting"]["K_POINTS"] = opts.surface_k_points
             
             if opts.surface_incar:
                 with open('INCAR.surface', 'w') as f:
@@ -180,7 +187,6 @@ def get_properties(opts: AbacusModel):
         }
         if opts.custom_interstitial_calc:
             interstitial_params["cal_setting"] = {
-                "kgamma": opts.interstitial_kgamma,
                 "relax_pos": opts.interstitial_relax_pos,
                 "relax_shape": opts.interstitial_relax_shape,
                 "relax_vol": opts.interstitial_relax_vol,
@@ -193,6 +199,8 @@ def get_properties(opts: AbacusModel):
                 interstitial_params["cal_setting"]["encut"] = opts.interstitial_encut
             if opts.interstitial_kspacing:
                 interstitial_params["cal_setting"]["kspacing"] = opts.interstitial_kspacing
+            if opts.interstitial_k_points:
+                interstitial_params["cal_setting"]["K_POINTS"] = opts.interstitial_k_points
             
             if opts.interstitial_incar:
                 with open('INCAR.interstitial', 'w') as f:
@@ -210,7 +218,6 @@ def get_properties(opts: AbacusModel):
         }
         if opts.custom_vacancy_calc:
             vacancy_params["cal_setting"] = {
-                "kgamma": opts.vacancy_kgamma,
                 "relax_pos": opts.vacancy_relax_pos,
                 "relax_shape": opts.vacancy_relax_shape,
                 "relax_vol": opts.vacancy_relax_vol,
@@ -223,6 +230,8 @@ def get_properties(opts: AbacusModel):
                 vacancy_params["cal_setting"]["encut"] = opts.vacancy_encut
             if opts.vacancy_kspacing:
                 vacancy_params["cal_setting"]["kspacing"] = opts.vacancy_kspacing
+            if opts.vacancy_k_points:
+                vacancy_params["cal_setting"]["K_POINTS"] = opts.vacancy_k_points
             
             if opts.vacancy_incar:
                 with open('INCAR.vacancy', 'w') as f:
@@ -251,7 +260,6 @@ def get_properties(opts: AbacusModel):
         }
         if opts.custom_gamma_calc:
             gamma_params["cal_setting"] = {
-                "kgamma": opts.gamma_kgamma,
                 "relax_pos": opts.gamma_relax_pos,
                 "relax_shape": opts.gamma_relax_shape,
                 "relax_vol": opts.gamma_relax_vol,
@@ -264,6 +272,8 @@ def get_properties(opts: AbacusModel):
                 gamma_params["cal_setting"]["encut"] = opts.gamma_encut
             if opts.gamma_kspacing:
                 gamma_params["cal_setting"]["kspacing"] = opts.gamma_kspacing
+            if opts.gamma_k_points:
+                gamma_params["cal_setting"]["K_POINTS"] = opts.gamma_k_points
             
             if opts.gamma_incar:
                 with open('INCAR.gamma', 'w') as f:
