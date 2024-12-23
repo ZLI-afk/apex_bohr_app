@@ -103,10 +103,10 @@ def get_properties(opts: AbacusModel):
             if opts.specify_eos_input:
                 for k, v in opts.eos_input.items():
                     eos_params["cal_setting"][k] = v
-            if opts.eos_incar:
-                with open('INCAR.eos', 'w') as f:
-                    f.write(opts.eos_incar)
-                eos_params["cal_setting"]["input_prop"] = "INCAR.eos"
+            if opts.eos_input:
+                with open('INPUT.eos', 'w') as f:
+                    f.write(opts.eos_input)
+                eos_params["cal_setting"]["input_prop"] = "INPUT.eos"
         properties.append(eos_params)
 
     # Elasitc
@@ -136,10 +136,10 @@ def get_properties(opts: AbacusModel):
                 elastic_params["cal_setting"]["K_POINTS"] = opts.elastic_k_points
             
             
-            if opts.elastic_incar:
-                with open('INCAR.elastic', 'w') as f:
-                    f.write(opts.elastic_incar)
-                elastic_params["cal_setting"]["input_prop"] = "INCAR.elastic"
+            if opts.elastic_input:
+                with open('INPUT.elastic', 'w') as f:
+                    f.write(opts.elastic_input)
+                elastic_params["cal_setting"]["input_prop"] = "INPUT.elastic"
         properties.append(elastic_params)
     
     # Surface
@@ -170,10 +170,10 @@ def get_properties(opts: AbacusModel):
             if opts.surface_k_points:
                 surface_params["cal_setting"]["K_POINTS"] = opts.surface_k_points
             
-            if opts.surface_incar:
-                with open('INCAR.surface', 'w') as f:
-                    f.write(opts.surface_incar)
-                surface_params["cal_setting"]["input_prop"] = "INCAR.surface"
+            if opts.surface_input:
+                with open('INPUT.surface', 'w') as f:
+                    f.write(opts.surface_input)
+                surface_params["cal_setting"]["input_prop"] = "INPUT.surface"
         properties.append(surface_params)
 
     # Interstitial
@@ -202,10 +202,10 @@ def get_properties(opts: AbacusModel):
             if opts.interstitial_k_points:
                 interstitial_params["cal_setting"]["K_POINTS"] = opts.interstitial_k_points
             
-            if opts.interstitial_incar:
-                with open('INCAR.interstitial', 'w') as f:
-                    f.write(opts.interstitial_incar)
-                interstitial_params["cal_setting"]["input_prop"] = "INCAR.interstitial"
+            if opts.interstitial_input:
+                with open('INPUT.interstitial', 'w') as f:
+                    f.write(opts.interstitial_input)
+                interstitial_params["cal_setting"]["input_prop"] = "INPUT.interstitial"
         properties.append(interstitial_params)
 
     # Vacancy
@@ -233,10 +233,10 @@ def get_properties(opts: AbacusModel):
             if opts.vacancy_k_points:
                 vacancy_params["cal_setting"]["K_POINTS"] = opts.vacancy_k_points
             
-            if opts.vacancy_incar:
-                with open('INCAR.vacancy', 'w') as f:
-                    f.write(opts.vacancy_incar)
-                vacancy_params["cal_setting"]["input_prop"] = "INCAR.vacancy"
+            if opts.vacancy_input:
+                with open('INPUT.vacancy', 'w') as f:
+                    f.write(opts.vacancy_input)
+                vacancy_params["cal_setting"]["input_prop"] = "INPUT.vacancy"
         properties.append(vacancy_params)
     
     # Vacancy
@@ -275,10 +275,10 @@ def get_properties(opts: AbacusModel):
             if opts.gamma_k_points:
                 gamma_params["cal_setting"]["K_POINTS"] = opts.gamma_k_points
             
-            if opts.gamma_incar:
-                with open('INCAR.gamma', 'w') as f:
-                    f.write(opts.gamma_incar)
-                gamma_params["cal_setting"]["input_prop"] = "INCAR.gamma"
+            if opts.gamma_input:
+                with open('INPUT.gamma', 'w') as f:
+                    f.write(opts.gamma_input)
+                gamma_params["cal_setting"]["input_prop"] = "INPUT.gamma"
         properties.append(gamma_params)
         
     if opts.select_phonon:
@@ -296,10 +296,10 @@ def get_properties(opts: AbacusModel):
             "BAND_CONNECTION": opts.band_connection,
             "cal_setting": {}
         }
-        if opts.phonon_incar:
-            with open('INCAR.phonon', 'w') as f:
-                f.write(opts.phonon_incar)
-            phonon_params["cal_setting"]["input_prop"] = "INCAR.phonon"
+        if opts.phonon_input:
+            with open('INPUT.phonon', 'w') as f:
+                f.write(opts.phonon_input)
+            phonon_params["cal_setting"]["input_prop"] = "INPUT.phonon"
         properties.append(phonon_params)
 
     return properties
