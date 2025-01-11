@@ -22,7 +22,8 @@ def get_global_config(opts: AbacusModel):
         "bohrium_config":{
             "username": opts.bohrium_username,
             "ticket": opts.bohrium_ticket,
-            "projectId": opts.bohrium_project_id
+            "projectId": opts.bohrium_project_id,
+            "project_id": opts.bohrium_project_id
         },
         "machine": {
                 "batch_type": "Bohrium",
@@ -117,6 +118,9 @@ def get_properties(opts: AbacusModel):
             "norm_deform": opts.norm_deform,
             "shear_deform": opts.shear_deform,
             "cal_type": opts.elastic_cal_type,
+            "conventional": opts.conventional,
+            "ieee": opts.ieee,
+            "modulus_type": opts.modulus_type
         }
         if opts.custom_elastic_calc:
             elastic_params["cal_setting"] = {

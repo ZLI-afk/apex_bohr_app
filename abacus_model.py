@@ -212,6 +212,10 @@ class EOSAdvance(BaseModel):
         description='Specify INPUT for EOS calculation'
     )
 
+class ModulusTypeOptions(String, Enum):
+    voigt = 'voigt'
+    reuss = 'reuss'
+    vrh = 'vrh'
 
 @elastic_group
 class ElasticOptions(BaseModel):
@@ -239,6 +243,18 @@ class ElasticParameters(BaseModel):
         default=0.01,
         gt=0,
         description='Shear deformation'
+    )
+    conventional = Boolean = Field(
+        default=False,
+        description='Transform to conventional cell'
+    )
+    ieee = Boolean = Field(
+        default=False,
+        description='Apply ieee standard transformation'
+    )
+    modulus_type: ModulusTypeOptions = Field(
+        default=ModulusTypeOptions.vrh,
+        description='Method of modulus approximation'
     )
 
 

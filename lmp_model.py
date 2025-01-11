@@ -77,7 +77,7 @@ class GlobalConfig(BaseModel):
         description='Image address including dependencies for APEX to run'
     )
     scass_type: String = Field(
-        default="c8_m31_1 * NVIDIA T4", 
+        default="1 * NVIDIA T4_16g", 
         description='Bohrium machine node type for MD simulation'
     )
     group_size: Int = Field(
@@ -259,6 +259,10 @@ class EOSAdvance(BaseModel):
         description='LAMMPS input instruction for EOS'
     )
 
+class ModulusTypeOptions(String, Enum):
+    voigt = 'voigt'
+    reuss = 'reuss'
+    vrh = 'vrh'
 
 @elastic_group
 class ElasticOptions(BaseModel):
@@ -287,6 +291,19 @@ class ElasticParameters(BaseModel):
         gt=0,
         description='Shear deformation'
     )
+    conventional = Boolean = Field(
+        default=False,
+        description='Transform to conventional cell'
+    )
+    ieee = Boolean = Field(
+        default=False,
+        description='Apply ieee standard transformation'
+    )
+    modulus_type: ModulusTypeOptions = Field(
+        default=ModulusTypeOptions.vrh,
+        description='Method of modulus approximation'
+    )
+
 
 
 @elastic_group
