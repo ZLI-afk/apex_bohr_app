@@ -256,11 +256,11 @@ class ElasticParameters(BaseModel):
         gt=0,
         description='Shear deformation'
     )
-    conventional = Boolean = Field(
+    conventional: Boolean = Field(
         default=False,
         description='Transform to conventional cell'
     )
-    ieee = Boolean = Field(
+    ieee: Boolean = Field(
         default=False,
         description='Apply ieee standard transformation'
     )
